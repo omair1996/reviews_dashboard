@@ -182,7 +182,18 @@ export default function DashboardPage() {
     <div className="min-h-screen bg-gray-50 py-10">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
-        <header className="mb-10 text-center"></header>
+        <header className="mb-12 text-start">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight">
+            <div className="relative inline-block">
+              <span className="block bg-gradient-to-r from-[#284E4C] via-[#3B6B6A] to-[#5FAFA7] bg-clip-text text-transparent drop-shadow-sm">
+                Manage
+              </span>
+              <span className="block mt-2 ml-[4.6ch] bg-gradient-to-r from-[#5FAFA7] via-[#3B6B6A] to-[#284E4C] bg-clip-text text-transparent drop-shadow-sm">
+                Reviews
+              </span>
+            </div>
+          </h1>
+        </header>
 
         {/* Property Stats */}
         <PropertyStatsGrid propertyStats={propertyStats} />
