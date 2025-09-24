@@ -28,7 +28,7 @@ export default function Navigation() {
     },
     {
       href: "/property/demo",
-      label: "Public Reviews",
+      label: "property Reviews",
       icons: <BookOpen className="h-4 w-4 mr-2" />,
     },
     {
