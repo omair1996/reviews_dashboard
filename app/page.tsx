@@ -386,6 +386,13 @@ export default function HomePage() {
             <div className="mt-12 text-center">
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <Link
+                  href="/dashboard"
+                  className="inline-flex items-center bg-blue-100 text-blue-800 px-6 py-3 rounded-full hover:bg-blue-200 transition-colors"
+                >
+                  <span className="text-sm">Manager Dashboard</span>
+                  <span className="ml-3 text-sm">✓ Complete</span>
+                </Link>
+                <Link
                   href="/api/reviews/hostaway"
                   target="_blank"
                   className="inline-flex items-center bg-green-100 text-green-800 px-6 py-3 rounded-full hover:bg-green-200 transition-colors"
@@ -396,10 +403,10 @@ export default function HomePage() {
                   <span className="ml-3 text-sm">✓ Fully functional</span>
                 </Link>
                 <Link
-                  href="/dashboard"
+                  href="/property/demo"
                   className="inline-flex items-center bg-blue-100 text-blue-800 px-6 py-3 rounded-full hover:bg-blue-200 transition-colors"
                 >
-                  <span className="text-sm">Manager Dashboard</span>
+                  <span className="text-sm">Property Reviews</span>
                   <span className="ml-3 text-sm">✓ Complete</span>
                 </Link>
               </div>
