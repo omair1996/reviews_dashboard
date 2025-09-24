@@ -6,10 +6,75 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../app/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+enum ReviewChannel {
+  hostaway
+  google
+  booking
+  airbnb
+}
+
+enum ReviewCategoryType {
+  cleanliness
+  communication
+  respect_house_rules
+  location
+  value
+  amenities
+}
+
+
+model Review {
+  id             String   @id @default(cuid())
+  hostawayId     Int?     @unique
+  type           String
+  status         String
+  overallRating  Int?
+  publicReview   String?  @db.Text
+  guestName      String
+  listingName    String
+  propertyId     String?
+  submittedAt    DateTime
+  channel        ReviewChannel @default(hostaway)
+  isApproved     Boolean  @default(false)
+  isSelected     Boolean  @default(false)
+  managerNotes   String?
+  categories     ReviewCategory[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("reviews")
+  @@index([propertyId])
+  @@index([isApproved])
+  @@index([channel])
+  @@index([submittedAt])
+}
+
+model ReviewCategory {
+  id        String            @id @default(cuid())
+  reviewId  String
+  category  ReviewCategoryType
+  rating    Int
+  review    Review @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+
+  @@map("review_categories")
+  @@index([category])
+}
+
+model Property {
+  id            String   @id @default(cuid())
+  name          String
+  hostawayId    Int?     @unique
+  averageRating Float?
+  totalReviews  Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("properties")
 }
