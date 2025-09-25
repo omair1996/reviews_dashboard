@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Info, BookOpen, Mail, Menu } from "lucide-react";
+import { Info, BookOpen, Mail, Menu, X } from "lucide-react";
 
 export default function Navigation() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const logo =
     "https://res.cloudinary.com/omair1996/image/upload/v1758721176/image2_jjz6ac.webp";
 
@@ -20,6 +21,11 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu when pathname changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
   const dashboardNavItems = [
     {
       href: "/dashboard",
@@ -28,7 +34,7 @@ export default function Navigation() {
     },
     {
       href: "/property/demo",
-      label: "property Reviews",
+      label: "Property Reviews",
       icons: <BookOpen className="h-4 w-4 mr-2" />,
     },
     {
@@ -37,6 +43,10 @@ export default function Navigation() {
       icons: <Mail className="h-4 w-4 mr-2" />,
     },
   ];
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <header
@@ -131,19 +141,55 @@ export default function Navigation() {
               <span className="text-xs ml-1">GBP</span>
             </button>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu Button */}
             <button
+              onClick={toggleMobileMenu}
               className={`inline-flex items-center justify-center h-9 w-9 rounded-full border-2 border-transparent transition-all duration-200 ${
                 isScrolled
                   ? "text-white hover:bg-white/10"
                   : "text-gray-700 hover:bg-gray-100"
               }`}
               type="button"
+              aria-label="Toggle mobile menu"
             >
-              <Menu className="h-5 w-5" />
+              {isMobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </button>
           </div>
         </nav>
+
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div
+            className={`md:hidden absolute left-0 right-0 top-[88px] shadow-lg transition-all duration-300 ${
+              isScrolled ? "bg-[#284E4C]" : "bg-[#FFFDF6]"
+            }`}
+          >
+            <div className="px-4 py-4 space-y-2">
+              {dashboardNavItems.map(({ href, label, icons }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className={`flex items-center w-full rounded-md text-sm font-medium px-4 py-3 transition-colors ${
+                    pathname === href
+                      ? isScrolled
+                        ? "text-green-400 bg-white/10"
+                        : "text-green-600 bg-gray-100"
+                      : isScrolled
+                      ? "text-white hover:bg-white/10"
+                      : "text-gray-700 hover:bg-gray-100"
+                  }`}
+                >
+                  {icons}
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );
