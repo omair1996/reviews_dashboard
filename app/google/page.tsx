@@ -6,7 +6,6 @@ import Header from "../components/google/Header";
 import ApiTestSection from "../components/google/ApiTestSection";
 import IntegrationTestSection from "../components/google/IntegrationTestSection";
 import IntegrationResults from "../components/google/IntegrationResults";
-import SummarySection from "../components/google/SummarySection";
 import {
   TestResults,
   IntegrationResults as IntegrationResultsType,
@@ -145,8 +144,6 @@ export default function GoogleReviewsIntegration({
         {integrationResults && (
           <IntegrationResults integrationResults={integrationResults} />
         )}
-
-        <SummarySection />
       </div>
     </div>
   );

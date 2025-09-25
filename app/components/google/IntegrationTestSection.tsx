@@ -77,7 +77,7 @@ export default function IntegrationTestSection({
         <Button
           onClick={onFetchReviews}
           disabled={loading}
-          className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-4 rounded-xl font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg shadow-blue-100 h-auto"
+          className="w-full bg-[#284E4C] text-white py-3 px-4 rounded-xl font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg shadow-blue-100 h-auto"
         >
           {loading ? (
             <>
