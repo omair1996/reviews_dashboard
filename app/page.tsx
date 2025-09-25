@@ -409,6 +409,14 @@ export default function HomePage() {
                   <span className="text-sm">Property Reviews</span>
                   <span className="ml-3 text-sm">✓ Complete</span>
                 </Link>
+                <Link
+                  href="/google"
+                  target="_blank"
+                  className="inline-flex items-center bg-green-100 text-green-800 px-6 py-3 rounded-full hover:bg-green-200 transition-colors"
+                >
+                  <code className="font-mono text-sm">/api/reviews/google</code>
+                  <span className="ml-3 text-sm">✓ Fully functional</span>
+                </Link>
               </div>
             </div>
           </div>

@@ -9,7 +9,8 @@ const mockedAxios = axios as jest.Mocked<typeof axios>;
 // Conditionally import prisma only for integration
 let prisma: any;
 if (process.env.TEST_ENV === "integration") {
-  prisma = require("@/lib/db").prisma;
+  const db = await import("../../../../lib/db");
+  prisma = db.prisma;
 }
 
 describe("GET /api/reviews/hostaway", () => {

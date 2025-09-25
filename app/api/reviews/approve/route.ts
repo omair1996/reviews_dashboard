@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
     const channel = searchParams.get("channel");
     const status = searchParams.get("status");
 
-    let where: any = {};
+    const where: any = {};
 
     if (propertyId && propertyId !== "all") {
       where.propertyId = propertyId;
