@@ -32,8 +32,8 @@ export default function Navigation() {
       icons: <BookOpen className="h-4 w-4 mr-2" />,
     },
     {
-      href: "/api/reviews/hostaway",
-      label: "Data",
+      href: "/google",
+      label: "Google Reviews",
       icons: <Mail className="h-4 w-4 mr-2" />,
     },
   ];
