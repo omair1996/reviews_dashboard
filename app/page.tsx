@@ -140,9 +140,9 @@ export default function HomePage() {
             <div className="relative z-10 w-full max-w-md mx-auto px-4 flex flex-col justify-center h-full">
               <div className="mb-8 -mt-16">
                 <h1 className="text-5xl font-bold text-gray-800 leading-tight tracking-tight">
-                  <div>Book</div>
-                  <div>Beautiful</div>
-                  <div>Stays</div>
+                  <div>Property</div>
+                  <div>Client's</div>
+                  <div>Feedback</div>
                 </h1>
               </div>
               <div className="w-full flex justify-start">
