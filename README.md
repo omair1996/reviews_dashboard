@@ -4,7 +4,7 @@ A comprehensive review management system for Flex Living properties, enabling ma
 
 ## 🚀 Live Demo
 
-- **Production URL**: ??
+- **Production URL**: `https://reviews-dashboard-rho.vercel.app`
 - **Manager Dashboard**: `/dashboard`
 - **Property Review**: `/property/demo`
 - **API Endpoint**: `/api/reviews/hostaway`
@@ -219,7 +219,7 @@ src/
 
 ```bash
 # Test API endpoint
-curl https://your-app.vercel.app/api/reviews/hostaway
+curl https://reviews-dashboard-rho.vercel.app/api/reviews/hostaway
 
 # Expected response: JSON with normalized review data
 ```
